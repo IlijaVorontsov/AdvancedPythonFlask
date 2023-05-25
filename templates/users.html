@@ -1,5 +1,23 @@
-{% for user in users %}
+{% extends "base.html" %}
+
+{% block title %}Users{% endblock %}
+
+{% block content %}
+
+
+<!--Table that lists all users and emails-->
+<table>
     <tr>
-        <td>{{ user.username }}</td>
+        <th>Username</th>
+        <th>Email</th>
+    </tr>
+{{ users }}
+{% for username, User in users.items() %}
+    <tr>
+        <td>{{ User.username }}</td>
+        <td>{{ User.email }}</td>
     </tr>
 {% endfor %}
+</table>
+
+{% endblock %}

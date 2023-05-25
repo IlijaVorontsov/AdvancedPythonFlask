@@ -13,12 +13,6 @@
     <label for="email"><b>Email</b></label>
     <input type="email" placeholder="Enter Email" name="email" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
     <button type="submit">Register</button>
   </div>
 
@@ -26,6 +20,10 @@
     <!--Error Message-->
     {% if error %}
     <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <!--Success Message-->
+    {% if success %}
+    <p style="color: green;">{{ success }}</p>
     {% endif %}
   </div>
 </form>
