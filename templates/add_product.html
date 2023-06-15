@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Product{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <main class="form-register w-100 m-auto">
+    <form action="/add_product" method="post">
+      <h1 class="h3 mb-3 fw-normal">Add Product</h1>
+      <div class="form-floating">
+        <input type="text" class="form-control" name="name" placeholder="product name">
+        <label for="product">Productname</label>
+      </div>
+      <div class="form-floating">
+        <input type="number" class="form-control" name="price" placeholder="7.10">
+        <label for="price">Price</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" class="form-control" name="text" placeholder="product description">
+        <label for="product">Text</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Add Product</button>
+    </form>
+    <!--Reset password button-->
+    <div class="container" style="background-color:#f1f1f1">
+      <!--Error Message-->
+      {% if error %}
+      <p style="color: red;">{{ error }}</p>
+      {% endif %}
+      <!--Success Message-->
+      {% if success %}
+      <p style="color: green;">{{ success }}</p>
+      {% endif %}
+    </div>
+  </main>
+</div>
+{% endblock %}

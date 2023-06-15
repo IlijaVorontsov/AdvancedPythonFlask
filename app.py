@@ -47,6 +47,29 @@ def products():
     products = db.session.execute(db.select(Products)).scalars().all()
     return render_template('products.html', products=products)
 
+@app.route('/products/<int:product_id>')
+def product(product_id):
+    product = db.session.execute(db.select(Products).where(Products.id == product_id)).scalar()
+    return render_template('product.html', product=product)
+
+@app.route('/add_product', methods=['GET','POST'])
+def add_product():
+    if request.method == 'POST':
+        name = request.form['name']
+        price = request.form['price']
+        text = request.form['text']
+
+        product = db.session.execute(db.select(Products).where(Products.name == name)).scalar()
+
+        if product is not None:
+            return render_template('add_product.html', error='Product already exists!')
+        else:
+            product = Products(name, price, text)
+            db.session.add(product)
+            db.session.commit()
+            return render_template('add_product.html', success=f'Product {name} created!')
+    return render_template('add_product.html')
+
 @app.route('/register', methods=['GET','POST'])
 def register():
     if request.method == 'POST':
