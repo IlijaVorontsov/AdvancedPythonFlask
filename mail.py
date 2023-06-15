@@ -6,7 +6,7 @@ import random
 
 
 email = 'advancedpythoncourse@gmail.com'
-password = 'nilhbosaifsqcgug'
+password = ''
 email_to = 'ali.170403@hotmail.com'
 
 
