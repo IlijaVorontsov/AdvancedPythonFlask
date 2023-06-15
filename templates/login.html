@@ -3,22 +3,32 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h2>Login Form</h2>
+<div class="container">
+  <main class="form-signin w-50 m-auto">
+    <form action="/login" method="post">
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <div class="form-floating">
+        <input type="text" class="form-control" name="uname" placeholder="username">
+        <label for="uname">username</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" name="psw" placeholder="Password">
+        <label for="psw">Password</label>
+      </div>
 
-<form action="/login" method="post">
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <button type="submit">Login</button>
-  </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="/reset">password?</a></span>
-  </div>
-</form>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <!--Error Message-->
+      {% if error %}
+      <p style="color: red;">{{ error }}</p>
+      {% endif %}
+      <button class="w-30 btn btn-lg btn-primary" type="submit">Sign in</button>
+    </form>
+    <!--Reset password button-->
+    <a href="{{url_for('reset')}}" class="w-30 btn btn-lg btn-warning">Reset Password</a>
+  </main>
+</div>
 {% endblock %}

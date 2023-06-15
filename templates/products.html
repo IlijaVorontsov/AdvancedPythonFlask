@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 
-{% block title %}Users{% endblock %}
+{% block title %}Products{% endblock %}
 
 {% block content %}
 
 
 <!--Table that lists all users and emails-->
 <div class="container">
-    <h2>Users</h2>
+    <h2>Products</h2>
     <table class="table table-striped table-sm">
         <tr>
-            <th>Username</th>
-            <th>Email</th>
+            <th>Products</th>
+            <th>Price</th>
         </tr>
-    {% for User in users %}
+    {% for product in products %}
         <tr>
-            <td>{{ User.username }}</td>
-            <td>{{ User.email }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
         </tr>
     {% endfor %}
     </table>

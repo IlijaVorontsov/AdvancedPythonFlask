@@ -3,28 +3,32 @@
 {% block title %}Registration{% endblock %}
 
 {% block content %}
-<h2>Registration Form</h2>
 
-<form action="" method="post">
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label for="email"><b>Email</b></label>
-    <input type="email" placeholder="Enter Email" name="email" required>
-
-    <button type="submit">Register</button>
-  </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <!--Error Message-->
-    {% if error %}
-    <p style="color: red;">{{ error }}</p>
-    {% endif %}
-    <!--Success Message-->
-    {% if success %}
-    <p style="color: green;">{{ success }}</p>
-    {% endif %}
-  </div>
-</form>
+<div class="container">
+  <main class="form-register w-100 m-auto">
+    <form action="/register" method="post">
+      <h1 class="h3 mb-3 fw-normal">Please register</h1>
+      <div class="form-floating">
+        <input type="text" class="form-control" name="uname" placeholder="username">
+        <label for="uname">username</label>
+      </div>
+      <div class="form-floating">
+        <input type="email" class="form-control" name="email" placeholder="example@mail.com">
+        <label for="email">Email</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+    </form>
+    <!--Reset password button-->
+    <div class="container" style="background-color:#f1f1f1">
+      <!--Error Message-->
+      {% if error %}
+      <p style="color: red;">{{ error }}</p>
+      {% endif %}
+      <!--Success Message-->
+      {% if success %}
+      <p style="color: green;">{{ success }}</p>
+      {% endif %}
+    </div>
+  </main>
+</div>
 {% endblock %}
